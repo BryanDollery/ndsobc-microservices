@@ -1,3 +1,5 @@
+.PHONY: k8s
+
 run: stop start logs
 
 dev:
@@ -30,3 +32,6 @@ stop:
 
 logs:
 	docker logs -f "$$(basename $$PWD)" | pino-pretty -t "SYS:HH:MM:ss" -c -l -i pid,hostname
+
+k8s:
+	kubectl apply -f ./k8s

@@ -16,3 +16,11 @@ test:
 
 clean:
 	docker rm -f $$(docker ps -qa)
+
+release:
+	make -C source build push
+	make -C sink build push
+
+k8s:
+	make -C source k8s
+	make -C sink k8s

@@ -5,3 +5,4 @@ workdir /app
 run npm install
 copy src/*.js /app/src/
 entrypoint ["npm", "start"]
+  
