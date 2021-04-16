@@ -8,8 +8,6 @@ services:
     volumes: 
     - ./source:/code
     working_dir: /code
-    command:
-      src/index.js
     ports: 
     - 8080:80
     environment:
@@ -22,7 +20,5 @@ services:
     volumes: 
     - ./sink:/code
     working_dir: /code
-    command:
-      src/index.js
     ports: 
     - 8081:80
