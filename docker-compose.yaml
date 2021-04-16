@@ -1,0 +1,28 @@
+version: "3.3"
+services:
+  source:
+    image: bryandollery/ndsobc-microservice-dev
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    volumes: 
+    - ./source:/code
+    working_dir: /code
+    command:
+      src/index.js
+    ports: 
+    - 8080:80
+    environment:
+      - SINK_HOST=sink
+  sink:
+    image: bryandollery/ndsobc-microservice-dev
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    volumes: 
+    - ./sink:/code
+    working_dir: /code
+    command:
+      src/index.js
+    ports: 
+    - 8081:80
